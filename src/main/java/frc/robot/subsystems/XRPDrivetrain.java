@@ -46,22 +46,26 @@ public class XRPDrivetrain extends SubsystemBase {
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
     //TODO finish implementing the arcade drive using the given member objects
+    m_diffDrive.arcadeDrive(xaxisSpeed,
+            zaxisRotate);
   }
 
   public void resetEncoders() {
     //TODO reset the left and right encoders to 0
+    m_leftEncoder.reset();
+    m_rightEncoder.reset();
   }
 
   public double getLeftDistanceInch() {
     //TODO get the left encoder distance in inches
-    // hint, look at what line 35/36 is doing
-    return 0;
+    // hint, look at what line 39/40 is doing
+    return m_leftEncoder.getDistance();
   }
 
   public double getRightDistanceInch() {
     //TODO get the right encoder distance in inches
     // hint, look at what line 35/36 is doing
-    return 0;
+    return m_rightEncoder.getDistance();
   }
 
   public double getGyroHeading() {
