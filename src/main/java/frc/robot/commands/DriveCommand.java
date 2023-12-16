@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class DriveCommand extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   //TODO create any needed objects ei. a drivetrain and xbox controller
+  private final CommandXboxController m_controller;
+  private final XRPDrivetrain m_drivetrain;
 
   /**
    * Creates a new ExampleCommand.
@@ -21,7 +23,9 @@ public class DriveCommand extends Command {
   public DriveCommand(XRPDrivetrain drivetrain, CommandXboxController controller) {
     //TODO get any needed inputs to the command
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements();
+    m_controller = controller;
+    m_drivetrain = drivetrain;
+    addRequirements(drivetrain);
   }
 
   // Called when the command is initially scheduled.
@@ -33,7 +37,6 @@ public class DriveCommand extends Command {
   public void execute() {
     //TODO call the drivetrain drive method using the controller
   }
-
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {}
